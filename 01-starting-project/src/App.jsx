@@ -1,8 +1,12 @@
 import Header from "./components/Header/Header.jsx";
 import CoreConcept from "./components/CoreConcept/CoreConcept.jsx";
 import { CORE_CONCEPTS } from "./data.js";
+import TabButton from "./components/TabButton.jsx";
 
 function App() {
+  function handleClick() {
+    console.log("Hello World! - selected");
+  }
   return (
     <div>
       <Header />
@@ -24,7 +28,15 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
-        <h2>Time to get started!</h2>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton onSelect={handleClick}>Components</TabButton>
+            <TabButton onSelect={handleClick}>JSX</TabButton>
+            <TabButton onSelect={handleClick}>Props</TabButton>
+            <TabButton onSelect={handleClick}>State</TabButton>
+          </menu>
+        </section>
       </main>
     </div>
   );
